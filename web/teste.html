@@ -9,135 +9,15 @@
         <link href="css/style.css" rel='stylesheet' type='text/css' />
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <script src="js/jquery.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $(".alterar").hide();
-                $(".cancelar").hide();
+           
 
-                $(".editar").click(function() {
-                    tr = ($(this).parent().siblings("td").parent().children("td"));
-                    $.each(tr, function(key, value) {
-                        td = $(value);
-                        texto = td.children("span").text().replace(/\s+/g, "");
-                        td.children("span").text("");
-                        td.children("span").append("<input type = 'text'>");
-                        td.children("span").append("<input type = 'hidden'>");
-                        td.children("span").children("input").val(texto);
-                        $.each(td.children("button"), function(key_b, value_b) {
-                            btn = $(value_b);
-                            btn.filter(".editar").hide();
-                            btn.filter(".excluir").hide();
-                            btn.filter(".alterar").show();
-                            btn.filter(".cancelar").show();
-                        })
-                    })
 
-                });
-                $(".alterar").click(function() {
-                    tr = ($(this).parent().siblings("td").parent().children("td"));
-                    $.each(tr, function(key, value) {
-                        td = $(value);
-                        texto = td.children("span").children("input").val();
-                        td.children("span").text(texto);
-                        td.children("span").children("input").remove("input");
-                        $.each(td.children("button"), function(key_b, value_b) {
-                            btn = $(value_b);
-                            btn.filter(".editar").show();
-                            btn.filter(".excluir").show();
-                            btn.filter(".alterar").hide();
-                            btn.filter(".cancelar").hide();
-                        })
-                    })
-                });
-                $(".cancelar").click(function() {
-                    tr = ($(this).parent().siblings("td").parent().children("td"));
-                    $.each(tr, function(key, value) {
-                        td = $(value);
-                        texto = td.children("span").children("input").val();
-                        td.children("span").text(texto);
-                        td.children("span").children("input").remove("input");
-                        $.each(td.children("button"), function(key_b, value_b) {
-                            btn = $(value_b);
-                            btn.filter(".editar").show();
-                            btn.filter(".excluir").show();
-                            btn.filter(".alterar").hide();
-                            btn.filter(".cancelar").hide();
-                        })
-                    })
-                });
             });
         </script>	
     </head>
     <body>
-    <from>
-        <table class='table table-hover'>
-            <thead>
-                <tr>
-                    <th>Usuario</th>
-                    <th>Senha</th>
-
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <span>
-                            alex
-                        </span>
-                    </td>
-                    <td>
-                        <span>
-                            1234
-                        </span>
-                    </td> 
-                    <td>
-                        <button type='button' class='btn btn-primary editar'>editar</button>
-                        <button type='button' class='btn btn-warning alterar'>alterar</button>
-                        <button type='button' class='btn btn-danger cancelar'>cancelar</button>
-                        <button type='button' class='btn btn-danger excluir'>excluir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>
-                            aaaaaa
-                        </span>
-                    </td>
-                    <td>
-                        <span>
-                            sssss
-                        </span>
-                    </td> 
-                    <td>
-                        <button type='button' class='btn btn-primary editar'>editar</button>
-                        <button type='button' class='btn btn-warning alterar'>alterar</button>
-                        <button type='button' class='btn btn-danger cancelar'>cancelar</button>
-                        <button type='button' class='btn btn-danger excluir'>excluir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>
-                            alexabc
-                        </span>
-                    </td>
-                    <td>
-                        <span>
-                            1234qqqq
-                        </span>
-                    </td> 
-                    <td>
-                        <button type='button' class='btn btn-primary editar'>editar</button>
-                        <button type='button' class='btn btn-warning alterar'>alterar</button>
-                        <button type='button' class='btn btn-danger cancelar'>cancelar</button>
-                        <button type='button' class='btn btn-danger excluir'>excluir</button>
-                    </td>               
-                </tr>
-            </tbody>
-        </table>
-        <p id="demo"></p>
-
-    </from>
-</body>
+    </body>
 </html>

@@ -22,17 +22,21 @@ if (isset($_POST['reset-senha'])) {
     $atualizar->valor_pk = $_POST['id'];
     $atualizar->setValor('senha', $_POST['senha']);
     $atualizar->delCampo('login');
-    $atualizar->delCampo('nome');
+    $atualizar->delCampo('perfil');
     $atualizar->delCampo('email');
+    $atualizar->delCampo('nome');
+    $atualizar->delCampo('telefone');
+    $atualizar->delCampo('obs');
     $atualizar->delCampo('ativo');
     $atualizar->delCampo('chave');
     $atualizar->delCampo('dataInsert');
+    $atualizar->delCampo('ultimoLogin');
     $ret = $atualizar->atualizar($atualizar);
     echo $ret . $_POST['id'] . " - -" . $_POST['senha'];
     if ($ret == 1) {
-        header("Location: reset.php?msg=Senha Alterada!");
+        header("Location: reset.php?msg=Senha Alterada!<br><br>Click <a href='./index.html'>aqui</a> e acesse o PortalOSS");
     } else {
-        header("Location: reset.php?msg=ERRO Senha Alterada!");
+        header("Location: reset.php?msg=ERRO!");
     }
 }
 ?>
@@ -95,7 +99,9 @@ if (isset($_POST['reset-senha'])) {
                                     <button type="submit" class="btn btn-primary" name="reset-senha">Atualizar
                                         <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                                     </button>
-                                    <?php echo $msg; ?>
+                                    <div class="row">
+                                        <?php echo $msg; ?>
+                                    </div>
                                 </div>
                             </form>
                         </div>  

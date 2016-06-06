@@ -42,10 +42,10 @@ $(document).ready(function() {
                         $("#carregando").dialog("open");
                         $("#painel").toggle($efeito, 1000, function() {
                             $("#apps").show();
+                            $("#apps").children().remove();
                             $("#apps").html("...");
                             $("#nome_app").text($nomeapp);
                             $("#desc_app").text($desc);
-
                         });
                     } else {
                         exit;

@@ -115,7 +115,7 @@ echo "<input type='hidden' id='SESSION_UsuarioIP' value='" . $_SESSION['IP'] . "
 
         <div class="form-group col-sm-12 como_resolvido">
             <label class="help-block">Como foi Resolvido? (Presione o CTRL para mais de uma opção).</label>
-            <select multiple size="9" class="form-control" id="como_resolvido">
+            <select multiple size="10" class="form-control" id="como_resolvido">
             </select>
         </div>
 

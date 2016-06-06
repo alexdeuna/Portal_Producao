@@ -35,7 +35,7 @@ if ($_POST['acao'] == 'reclamacao') {
     echo $resp;
 } else if ($_POST['acao'] == "como_resolvido") {
     $como = new Acao();
-    $como->extra_select = "where perfil = '" . $_POST['perfil'] . "'";
+    $como->extra_select = "where perfil = '" . $_POST['perfil'] . "' order by tipo";
     $como->selecionaTudo($como);
     while ($c = $como->retornaDados()) {
         $resp.="<option value='" . $c->tipo . "'>$c->tipo</option>";

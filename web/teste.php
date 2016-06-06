@@ -1,12 +1,37 @@
 <?php
-$arr = array
-  (
-  array("OI" => array("LinuxBox" => array("LinuxBox1" => array("usuario","senha1","senha2","senha3","desc"),"IP","porta","SO",))),
-  array("OI" => array("LinuxBox" => array("LinuxBox1" => array("usuario","senha1","senha2","senha3","desc"),"IP","porta","SO",))),
-  );
-$a=json_encode($arr);
-printf(json_encode($arr));
+//$arr = array
+//    (
+//    array("OI" => array("LinuxBox" => array("LinuxBox1" => array("usuario", "senha1", "senha2", "senha3", "desc"), "IP", "porta", "SO",))),
+//    array("OI" => array("LinuxBox" => array("LinuxBox1" => array("usuario", "senha1", "senha2", "senha3", "desc"), "IP", "porta", "SO",))),
+//);
+//$a = json_encode($arr);
+//printf(json_encode($arr));
+echo "dssd";
+$data = (array(
+    array("name 1", "age 1", "city 1"),
+    array("name 2", "age 2", "city 2"),
+    array("name 3", "age 3", "city 3")
+));
 
+$output = fopen("teste.csv", "w+");
+foreach ($data as $row) {
+    fputcsv($output, $row, ";");
+}
+fclose($output);
+echo "n";
+
+if (($handle = fopen("teste.csv", "r")) !== FALSE) {
+    
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $num = count($data);
+        echo "<p> $num fields in line $row: <br /></p>\n";
+        $row++;
+        for ($c = 0; $c < $num; $c++) {
+            echo $data[$c] . "<br />\n";
+        }
+    }
+    fclose($handle);
+}
 ?>
 <html>
     <head>
@@ -15,74 +40,7 @@ printf(json_encode($arr));
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <ol> 
-            <li>OI</li>
-            <ul>
-                <li>INTEGRA</li>
-            </ul>
-            <ul>
-                <li>LINUXBOX</li><ol>
-                    <li>Linuxbox01 10.121.247.125 </li>
-                </ol>
-                <ol>
-                    <li>Linuxbox02 10.121.247.65 </li>
-                </ol>
-                <ol>
-                    <li>Linuxbox1
-                        10.121.240.135 </li>
-                    <li>10.121.240.135 - Linux - root - 0 - 0 - 0 -  </li>
-                </ol>
-                <ol>
-                    <li>Linuxbox2 10.121.240.178 </li>
-                    <li>10.121.240.178 - Linux - root - 0 - 0 - 0 -  </li>
-                </ol>
-                <ol>
-                    <li>Linuxbox3 10.221.44.73 </li>
-                    <li>10.221.44.73 - Linux - root - 0 - 0 - 0   </li>
-                    <li>10.221.44.73 - Linux - vozadm - 0 - 0 - 0 -  </li>
-                </ol>
-                <ol>
-                    <li>Linuxbox4 10.121.229.70 </li>
-                    <li>10.121.229.70 - Linux - root - 0 - 0 - 0 -  </li>
-                </ol>
-                <ol>
-                    <li>Linuxbox5 192.9.200.168 </li>
-                </ol>
-                <ol>
-                    <li>Linuxbox6 192.9.200.12 </li>
-                </ol>
-            </ul>
-            <ul>
-                <li>SCRIPTSERVER</li>
-            </ul>
-            <ul>
-                <li >GATEWAY-OSS</li>
-            </ul>
-            <ul>
-                <li>SCINO</li>
-            </ul>
-        </ol>
-        <ol> 
-            <li>Ericsson</li>
-            <ul>
-                <li>PEM-R2</li>
-            </ul>
-            <ul>
-                <li>SoEM</li>
-            </ul>
-            <ul>
-                <li>OSS RC</li>
-            </ul>
-            <ul>
-                <li>OSS-RC 4.1</li>
-            </ul>
-            <ul>
-                <li>OSS-RC RED GEO</li>
-            </ul>
-            <ul>
-                <li>EMA</li>
-            </ul>
-        </ol>
+
 
     </body>
 </html>
